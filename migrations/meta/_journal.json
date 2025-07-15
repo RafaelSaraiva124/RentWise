@@ -8,6 +8,62 @@
       "when": 1752110642247,
       "tag": "0000_living_miek",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1752202991704,
+      "tag": "0001_pink_argent",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1752203084071,
+      "tag": "0002_blushing_thunderball",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1752203109164,
+      "tag": "0003_ancient_lady_vermin",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1752260698201,
+      "tag": "0004_dazzling_lockheed",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1752265462754,
+      "tag": "0005_dusty_sabra",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1752265980896,
+      "tag": "0006_cool_darkhawk",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1752513003768,
+      "tag": "0007_flat_blizzard",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1752513277989,
+      "tag": "0008_flaky_raider",
+      "breakpoints": true
     }
   ]
 }

@@ -46,12 +46,12 @@ const AuthForm = <T extends FieldValues>({
   };
   const FIELD_TYPES: Record<string, string> = {
     fullName: "text",
-    email: "Email",
+    email: "email",
     password: "password",
   };
 
   const form: UseFormReturn<T> = useForm({
-    resolver: zodResolver(schema),
+    resolver: zodResolver(schema as any),
     defaultValues: defaultValues as DefaultValues<T>,
   });
 

@@ -14,7 +14,7 @@ export const { POST } = serve<InitialData>(async (context) => {
   await context.sleep("wait-for-3-days", 60 * 60 * 24 * 3);
 
   while (true) {
-    const state = await context.run("check-user-state", async () => {
+    const state = await context.run("check-dashboard-state", async () => {
       return await getUserState();
     });
 
@@ -40,6 +40,6 @@ async function sendEmail(message: string, email: string) {
 type UserState = "non-active" | "active";
 
 const getUserState = async (): Promise<UserState> => {
-  // Implement user state logic here
+  // Implement dashboard state logic here
   return "non-active";
 };

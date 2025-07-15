@@ -4,14 +4,44 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="09f4abe2-205f-4421-a24b-3c30f258b67c" name="Changes" comment="" />
+    <list default="true" id="09f4abe2-205f-4421-a24b-3c30f258b67c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/(root)/dashboard/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/LandlordDashboard.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/TenantDashboard.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/dashCard.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/landlord/AddExpense.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/landlord/ContractsTab.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/landlord/ExpensesTab.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/landlord/PropertiesTab.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/landlord/RentsTab.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/actions/expenses.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/actions/landlord.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/actions/tenant.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/types/dashboard.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(auth)/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(auth)/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(root)/my-profile/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/my-profile/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(root)/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/workflows/onboarding/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/workflows/onboarding/route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/AuthForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/AuthForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/database/schema.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/actions/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/actions/auth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/meta/_journal.json" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/meta/_journal.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -24,9 +54,13 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
     &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
     &quot;js.linters.configure.manually.selectedeslint&quot;: &quot;true&quot;,
@@ -46,8 +80,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\rafae\Desktop\rent\app" />
+      <recent name="C:\Users\rafae\Desktop\rent" />
+      <recent name="C:\Users\rafae\Desktop\rent\components\landlord" />
       <recent name="C:\Users\rafae\Desktop\rent\app\(root)" />
+      <recent name="C:\Users\rafae\Desktop\rent\app\(root)\user" />
+      <recent name="C:\Users\rafae\Desktop\rent\app" />
     </key>
   </component>
   <component name="RunManager" selected="npm.Next.js: server-side">
@@ -81,6 +118,10 @@
       <updated>1751998445190</updated>
       <workItem from="1751998446288" duration="1392000" />
       <workItem from="1752184472154" duration="12223000" />
+      <workItem from="1752198876779" duration="24864000" />
+      <workItem from="1752371742860" duration="1938000" />
+      <workItem from="1752509202213" duration="27002000" />
+      <workItem from="1752590517712" duration="11378000" />
     </task>
     <servers />
   </component>

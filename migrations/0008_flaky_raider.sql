@@ -1,0 +1,1 @@
+ALTER TABLE "propriedades" ALTER COLUMN "ativa" SET NOT NULL;

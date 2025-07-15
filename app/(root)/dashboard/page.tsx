@@ -1,7 +1,7 @@
 import React from "react";
 import { getDashboardData } from "@/lib/actions/dashboard";
 import TenantDashboard from "@/components/TenantDashboard";
-import  LandlordDashboard  from "@/components/LandlordDashboard";
+import LandlordDashboardData from "@/components/LandlordDashboard";
 import { redirect } from "next/navigation";
 
 const Page = async () => {
@@ -17,7 +17,7 @@ const Page = async () => {
   if (result.userType === "INQUILINO") {
     return <TenantDashboard initialData={result.data} />;
   } else if (result.userType === "SENHORIO") {
-    return <LandlordDashboard initialData={result.data} />;
+    return <LandlordDashboardData initialData={result.data} />;
   } else {
     redirect("/unauthorized");
   }

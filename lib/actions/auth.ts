@@ -8,6 +8,7 @@ import { signIn } from "@/auth";
 import { headers } from "next/headers";
 import ratelimit from "@/lib/ratelimit";
 import { redirect } from "next/navigation";
+import { auth } from "@/auth";
 
 export const signInWithCredentials = async (
   params: Pick<AuthCredentials, "email" | "password">,
@@ -67,3 +68,25 @@ export const signUp = async (params: AuthCredentials) => {
     return { success: false, error: "Erro ao criar utilizador" };
   }
 };
+
+export async function requestLandlordAccess() {
+  try {
+    const session = await auth();
+
+    if (!session?.user?.id) {
+      throw new Error("Utilizador não autenticado");
+    }
+
+    await db
+      .update(users)
+      .set({
+        status: "PENDING",
+      })
+      .where(eq(users.id, session.user.id));
+
+    return { success: true, message: "Pedido de acesso enviado com sucesso" };
+  } catch (error) {
+    console.error("Erro ao solicitar acesso de senhorio:", error);
+    throw new Error("Erro ao processar pedido de acesso");
+  }
+}

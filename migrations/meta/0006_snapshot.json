@@ -1,0 +1,491 @@
+{
+  "id": "2edd1088-eb66-4f00-9911-1113cba368e7",
+  "prevId": "5049c590-e440-4149-97b1-78cc4b107af0",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.contratos": {
+      "name": "contratos",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "propriedade_id": {
+          "name": "propriedade_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "inquilino_id": {
+          "name": "inquilino_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "senhorio_id": {
+          "name": "senhorio_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "data_inicio": {
+          "name": "data_inicio",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "data_fim": {
+          "name": "data_fim",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "valor_renda": {
+          "name": "valor_renda",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "dia_vencimento": {
+          "name": "dia_vencimento",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 5
+        },
+        "ativo": {
+          "name": "ativo",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false,
+          "default": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "contratos_propriedade_id_propriedades_id_fk": {
+          "name": "contratos_propriedade_id_propriedades_id_fk",
+          "tableFrom": "contratos",
+          "tableTo": "propriedades",
+          "columnsFrom": [
+            "propriedade_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "contratos_inquilino_id_users_id_fk": {
+          "name": "contratos_inquilino_id_users_id_fk",
+          "tableFrom": "contratos",
+          "tableTo": "users",
+          "columnsFrom": [
+            "inquilino_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "contratos_senhorio_id_users_id_fk": {
+          "name": "contratos_senhorio_id_users_id_fk",
+          "tableFrom": "contratos",
+          "tableTo": "users",
+          "columnsFrom": [
+            "senhorio_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "contratos_id_unique": {
+          "name": "contratos_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.propriedades": {
+      "name": "propriedades",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "senhorio_id": {
+          "name": "senhorio_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "nome": {
+          "name": "nome",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "endereco": {
+          "name": "endereco",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "descricao": {
+          "name": "descricao",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "valor_renda": {
+          "name": "valor_renda",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ativa": {
+          "name": "ativa",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false,
+          "default": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "propriedades_senhorio_id_users_id_fk": {
+          "name": "propriedades_senhorio_id_users_id_fk",
+          "tableFrom": "propriedades",
+          "tableTo": "users",
+          "columnsFrom": [
+            "senhorio_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "propriedades_id_unique": {
+          "name": "propriedades_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.rendas": {
+      "name": "rendas",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "contrato_id": {
+          "name": "contrato_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "propriedade_id": {
+          "name": "propriedade_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "inquilino_id": {
+          "name": "inquilino_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "senhorio_id": {
+          "name": "senhorio_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "valor": {
+          "name": "valor",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "mes_referencia": {
+          "name": "mes_referencia",
+          "type": "varchar(7)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "data_vencimento": {
+          "name": "data_vencimento",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "data_pagamento": {
+          "name": "data_pagamento",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "status": {
+          "name": "status",
+          "type": "renda_status",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "'PENDENTE'"
+        },
+        "descricao": {
+          "name": "descricao",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "rendas_contrato_id_contratos_id_fk": {
+          "name": "rendas_contrato_id_contratos_id_fk",
+          "tableFrom": "rendas",
+          "tableTo": "contratos",
+          "columnsFrom": [
+            "contrato_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "rendas_propriedade_id_propriedades_id_fk": {
+          "name": "rendas_propriedade_id_propriedades_id_fk",
+          "tableFrom": "rendas",
+          "tableTo": "propriedades",
+          "columnsFrom": [
+            "propriedade_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "rendas_inquilino_id_users_id_fk": {
+          "name": "rendas_inquilino_id_users_id_fk",
+          "tableFrom": "rendas",
+          "tableTo": "users",
+          "columnsFrom": [
+            "inquilino_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "rendas_senhorio_id_users_id_fk": {
+          "name": "rendas_senhorio_id_users_id_fk",
+          "tableFrom": "rendas",
+          "tableTo": "users",
+          "columnsFrom": [
+            "senhorio_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "rendas_id_unique": {
+          "name": "rendas_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.users": {
+      "name": "users",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "full_name": {
+          "name": "full_name",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "email": {
+          "name": "email",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "password": {
+          "name": "password",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "status": {
+          "name": "status",
+          "type": "status",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "'INDEFINIDO'"
+        },
+        "role": {
+          "name": "role",
+          "type": "role",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "'INQUILINO'"
+        },
+        "last_activity_date": {
+          "name": "last_activity_date",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "users_id_unique": {
+          "name": "users_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id"
+          ]
+        },
+        "users_email_unique": {
+          "name": "users_email_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "email"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {
+    "public.renda_status": {
+      "name": "renda_status",
+      "schema": "public",
+      "values": [
+        "PAGO",
+        "PENDENTE",
+        "VENCIDO"
+      ]
+    },
+    "public.role": {
+      "name": "role",
+      "schema": "public",
+      "values": [
+        "INQUILINO",
+        "SENHORIO"
+      ]
+    },
+    "public.status": {
+      "name": "status",
+      "schema": "public",
+      "values": [
+        "INDEFINIDO",
+        "PENDING",
+        "APPROVED",
+        "REJECTED"
+      ]
+    }
+  },
+  "schemas": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}
