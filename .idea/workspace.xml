@@ -5,32 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="09f4abe2-205f-4421-a24b-3c30f258b67c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/(root)/dashboard/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/LandlordDashboard.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/TenantDashboard.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/dashCard.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/landlord/AddExpense.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/landlord/ContractsTab.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/landlord/ExpensesTab.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/landlord/PropertiesTab.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/landlord/RentsTab.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/actions/expenses.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/actions/landlord.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/actions/tenant.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/types/dashboard.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/landlord/AddContractForm.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/landlord/AddPropertyForm.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/landlord/AddRentForm.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/landlord/QuickActions.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(auth)/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(auth)/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/my-profile/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/my-profile/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/(root)/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/workflows/onboarding/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/workflows/onboarding/route.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/AuthForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/AuthForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/database/schema.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/actions/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/actions/auth.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/meta/_journal.json" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/meta/_journal.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/LandlordDashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/LandlordDashboard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/TenantDashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/TenantDashboard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/landlord/AddExpense.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/landlord/AddExpenseForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/landlord/ContractsTab.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/landlord/ExpensesTab.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/landlord/PropertiesTab.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/landlord/RentsTab.tsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +28,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -121,7 +108,7 @@
       <workItem from="1752198876779" duration="24864000" />
       <workItem from="1752371742860" duration="1938000" />
       <workItem from="1752509202213" duration="27002000" />
-      <workItem from="1752590517712" duration="11378000" />
+      <workItem from="1752590517712" duration="14192000" />
     </task>
     <servers />
   </component>

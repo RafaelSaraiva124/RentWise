@@ -10,9 +10,6 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 import {
   Euro,
   Home,
@@ -23,9 +20,6 @@ import {
   Plus,
   Droplets,
   Zap,
-  ReceiptText,
-  Building,
-  DollarSign,
 } from "lucide-react";
 import {
   LandlordData,
@@ -35,7 +29,7 @@ import {
   Expense,
   User as UserType,
 } from "@/types/dashboard";
-import { addProperty } from "@/lib/actions/landlord";
+import QuickActions from "@/components/landlord/QuickActions";
 
 interface LandlordDashboardProps {
   initialData: LandlordData;
@@ -45,15 +39,6 @@ export function LandlordDashboard({ initialData }: LandlordDashboardProps) {
   const [selectedPropertyId, setSelectedPropertyId] = useState<string | null>(
     null,
   );
-  // Add property
-  const [showAddProperty, setShowAddProperty] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [propertyForm, setPropertyForm] = useState({
-    nome: "",
-    endereco: "",
-    descricao: "",
-    valorRenda: "",
-  });
 
   // Propriedade selecionada
   const selectedProperty = selectedPropertyId
@@ -76,158 +61,6 @@ export function LandlordDashboard({ initialData }: LandlordDashboardProps) {
       month: "2-digit",
       year: "numeric",
     }).format(new Date(date));
-
-  // Função para resetar formulário
-  const resetPropertyForm = () => {
-    setPropertyForm({ nome: "", endereco: "", descricao: "", valorRenda: "" });
-  };
-
-  // Função para adicionar propriedade
-  const handleAddProperty = async () => {
-    if (
-      !propertyForm.nome ||
-      !propertyForm.endereco ||
-      !propertyForm.valorRenda
-    ) {
-      alert("Nome, endereço e valor da renda são obrigatórios");
-      return;
-    }
-
-    setIsSubmitting(true);
-    try {
-      const form = new FormData();
-      Object.entries(propertyForm).forEach(([key, value]) => {
-        form.append(key, value);
-      });
-
-      const result = await addProperty(form);
-      if (result.success) {
-        alert("Propriedade adicionada com sucesso!");
-        setShowAddProperty(false);
-        resetPropertyForm();
-        window.location.reload();
-      } else {
-        alert(result.error || "Erro ao adicionar propriedade");
-      }
-    } catch (error) {
-      alert("Erro de conexão. Tente novamente.");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  // Se está mostrando o formulário de adicionar propriedade
-  if (showAddProperty) {
-    return (
-      <div className="min-h-screen bg-gray-50 p-4">
-        <div className="max-w-4xl mx-auto">
-          <Button
-            variant="ghost"
-            className="mb-4 text-gray-600 flex items-center gap-2"
-            onClick={() => {
-              setShowAddProperty(false);
-              resetPropertyForm();
-            }}
-          >
-            <ArrowLeft className="h-4 w-4" />
-            Voltar ao Dashboard
-          </Button>
-
-          <div className="mb-6">
-            <h1 className="text-3xl font-bold text-gray-800 mb-2">
-              Nova Propriedade
-            </h1>
-            <p className="text-gray-600">
-              Adicione uma nova propriedade ao seu portfólio
-            </p>
-          </div>
-
-          <Card>
-            <CardHeader>
-              <CardTitle>Detalhes da Propriedade</CardTitle>
-              <CardDescription>
-                Preencha os dados da nova propriedade
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <Label htmlFor="nome">Nome *</Label>
-                  <Input
-                    id="nome"
-                    value={propertyForm.nome}
-                    onChange={(e) =>
-                      setPropertyForm((p) => ({ ...p, nome: e.target.value }))
-                    }
-                    placeholder="Ex: T2 no centro"
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="valorRenda">Valor da Renda *</Label>
-                  <Input
-                    id="valorRenda"
-                    type="number"
-                    step="0.01"
-                    value={propertyForm.valorRenda}
-                    onChange={(e) =>
-                      setPropertyForm((p) => ({
-                        ...p,
-                        valorRenda: e.target.value,
-                      }))
-                    }
-                    placeholder="Ex: 700.00"
-                  />
-                </div>
-                <div className="md:col-span-2">
-                  <Label htmlFor="endereco">Endereço *</Label>
-                  <Input
-                    id="endereco"
-                    value={propertyForm.endereco}
-                    onChange={(e) =>
-                      setPropertyForm((p) => ({
-                        ...p,
-                        endereco: e.target.value,
-                      }))
-                    }
-                    placeholder="Rua Exemplo, Lisboa"
-                  />
-                </div>
-                <div className="md:col-span-2">
-                  <Label htmlFor="descricao">Descrição</Label>
-                  <Textarea
-                    id="descricao"
-                    value={propertyForm.descricao}
-                    onChange={(e) =>
-                      setPropertyForm((p) => ({
-                        ...p,
-                        descricao: e.target.value,
-                      }))
-                    }
-                    placeholder="Detalhes adicionais sobre a propriedade..."
-                    rows={3}
-                  />
-                </div>
-              </div>
-              <div className="flex gap-2 justify-end pt-4">
-                <Button onClick={handleAddProperty} disabled={isSubmitting}>
-                  {isSubmitting ? "A adicionar..." : "Adicionar Propriedade"}
-                </Button>
-                <Button
-                  variant="outline"
-                  onClick={() => {
-                    setShowAddProperty(false);
-                    resetPropertyForm();
-                  }}
-                >
-                  Cancelar
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </div>
-    );
-  }
 
   // Vista detalhada da propriedade
   if (selectedProperty) {
@@ -590,81 +423,11 @@ export function LandlordDashboard({ initialData }: LandlordDashboardProps) {
         </div>
 
         {/* Ações Rápidas */}
-        <section className="mb-8">
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">
-            Ações Rápidas
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <Card
-              className="hover:shadow-lg transition-shadow cursor-pointer"
-              onClick={() => setShowAddProperty(true)}
-            >
-              <CardContent className="p-6 text-center">
-                <div className="mb-3">
-                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto">
-                    <Home className="h-6 w-6 text-blue-600" />
-                  </div>
-                </div>
-                <h3 className="font-semibold text-gray-800 mb-1">
-                  Nova Propriedade
-                </h3>
-                <p className="text-sm text-gray-500">Adicionar imóvel</p>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:shadow-lg transition-shadow cursor-pointer">
-              <CardContent className="p-6 text-center">
-                <div className="mb-3">
-                  <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto">
-                    <DollarSign className="h-6 w-6 text-green-600" />
-                  </div>
-                </div>
-                <h3 className="font-semibold text-gray-800 mb-1">Nova Renda</h3>
-                <p className="text-sm text-gray-500">Registar cobrança</p>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:shadow-lg transition-shadow cursor-pointer">
-              <CardContent className="p-6 text-center">
-                <div className="mb-3">
-                  <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto">
-                    <ReceiptText className="h-6 w-6 text-green-600" />
-                  </div>
-                </div>
-                <h3 className="font-semibold text-gray-800 mb-1">Contrato</h3>
-                <p className="text-sm text-gray-500">Associar Contrato</p>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:shadow-lg transition-shadow cursor-pointer">
-              <CardContent className="p-6 text-center">
-                <div className="mb-3">
-                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto">
-                    <Droplets className="h-6 w-6 text-blue-500" />
-                  </div>
-                </div>
-                <h3 className="font-semibold text-gray-800 mb-1">
-                  Despesa de Água
-                </h3>
-                <p className="text-sm text-gray-500">Registar consumo</p>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:shadow-lg transition-shadow cursor-pointer">
-              <CardContent className="p-6 text-center">
-                <div className="mb-3">
-                  <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mx-auto">
-                    <Zap className="h-6 w-6 text-yellow-500" />
-                  </div>
-                </div>
-                <h3 className="font-semibold text-gray-800 mb-1">
-                  Despesa Elétrica
-                </h3>
-                <p className="text-sm text-gray-500">Registar consumo</p>
-              </CardContent>
-            </Card>
-          </div>
-        </section>
+        <QuickActions
+          properties={initialData.properties}
+          contracts={initialData.contracts}
+          onSuccess={() => window.location.reload()}
+        />
 
         {/* As suas Propriedades */}
         <section>
@@ -679,7 +442,7 @@ export function LandlordDashboard({ initialData }: LandlordDashboardProps) {
                 <p className="text-gray-500 text-lg mb-4">
                   Não tem propriedades registadas.
                 </p>
-                <Button onClick={() => setShowAddProperty(true)}>
+                <Button>
                   <Plus className="h-4 w-4 mr-2" />
                   Adicionar Primeira Propriedade
                 </Button>

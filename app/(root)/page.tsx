@@ -1,11 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { db } from "@/database/drizzle";
-import { users } from "@/database/schema";
 
 const Home = async () => {
   return (
     <div>
-      <Button>click me</Button>
+      <h1 className=""> Ainda falta fazer esta pagina</h1>
     </div>
   );
 };
